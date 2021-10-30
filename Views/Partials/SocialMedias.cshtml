@@ -1,0 +1,14 @@
+﻿@inherits UmbracoViewPage
+@{
+    var socialMedias = Model.FirstChild<SocialContainer>().Children<SocialMedia>().OrderByDescending(x => x.CreateDate);
+}
+@if (socialMedias!=null)
+{
+    foreach (var item in socialMedias)
+    {
+        <a href="@item.SoscialMediaLink">
+            <i class="@item.SocialMediaIcon"></i>
+        </a>
+    }
+}
+

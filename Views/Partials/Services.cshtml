@@ -1,0 +1,40 @@
+﻿@inherits UmbracoViewPage
+@{
+    var services = Model.FirstChild<ServicePage>()?.Children<Service>();
+    var service = Model.FirstChild<ServicePage>();
+}
+
+<!-- service_area_start  -->
+<div class="service_area">
+    <div class="container">
+        <div class="row justify-content-center ">
+            <div class="col-lg-7 col-md-10">
+                <div class="section_title text-center mb-95">
+                    <h3>@service.ServiceTitle</h3>
+                    @service.ServiceDescription
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            @foreach (var item in services)
+            {
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_service">
+                        <div class="service_thumb service_icon_bg_1 d-flex align-items-center justify-content-center">
+                            <div class="service_icon">
+                                <img src="@item.ServicePicture.Url()" alt="">
+                            </div>
+                        </div>
+                        <div class="service_content text-center">
+                            <h3>@item.ServiceTitle</h3>
+                            <p>@item.ServiceDescription</p>
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+        </div>
+    </div>
+</div>
+<!-- service_area_end -->

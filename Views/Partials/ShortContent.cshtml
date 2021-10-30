@@ -1,0 +1,20 @@
+﻿@inherits UmbracoViewPage
+    @{ 
+        var shortContent = Model.FirstChild<ShortContentContainer>()?.Children<ShortContent>();
+
+
+}
+
+<div class="short_contact_list">
+    <ul>
+        @if (shortContent!=null)
+        {
+            foreach (var item in shortContent)
+            {
+                <li><a href="#">@item.Content</a></li>
+            }
+        }
+
+
+    </ul>
+</div>
